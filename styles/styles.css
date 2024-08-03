@@ -533,11 +533,17 @@ margin-right: 2rem;
     text-align: left;
     gap: 2rem;
 }
-
+.personal-info .info span{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding-left: 2.5rem;
+}
 
 .personal-info .info img{
     width: 30px;
     height: 30px;
+    margin-right: 2rem;
 }
 
 
