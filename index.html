@@ -17,15 +17,16 @@
            
             <nav>
                 <ul>
-                    <li><a href="#" class="home-btn">Home</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#home" class="home-btn">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolios">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </section>
 
-        <section class="home-content">
+        <section class="home-content" id="home">
             <div class="contents">
                 <h3>Hello!</h3>
                 <h1> <span>I am</span> COOLMAN Néo</h1>
@@ -52,7 +53,7 @@
 
         <!--code for second bloc -->
 
-        <section class="about-section">
+        <section class="about-section" id="about">
             
             <div class="abt-contents">
                 <img src="assets/images/image-profile.svg" alt="profile autor image">
@@ -73,7 +74,7 @@
 
         <!-- code for services -->
 
-        <section class="all-services">
+        <section class="all-services" id="services">
             
             <div class="services">
                 <h2>My services</h2>
@@ -84,41 +85,45 @@
                         <h2>Front-End Developer</h2>
     
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos suscipit laboriosam ipsam cumque, reiciendis mollitia ipsum voluptatem rem placeat consequatur?.</p>
-                        <button>Conctact Me</button>
+                        <button><a href="#contact">Conctact Me</a></button>
                     </div>
                     
                     <div class="service">
-                        <img src="assets/icones/digital-campaign.png" alt="fullstak dev icone">
+                        <img src="assets/icones/ux-design.png" alt="fullstak dev icone">
                         <h2>Front-End Developer</h2>
     
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos suscipit laboriosam ipsam cumque, reiciendis mollitia ipsum voluptatem rem placeat consequatur?.</p>
-                        <button>Conctact Me</button>
+                        <button><a href="#contact">Conctact Me</a></button>
                     </div> 
                     <div class="service">
                         <img src="assets/icones/digital-campaign.png" alt="fullstak dev icone">
                         <h2>Front-End Developer</h2>
     
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos suscipit laboriosam ipsam cumque, reiciendis mollitia ipsum voluptatem rem placeat consequatur?.</p>
-                        <button>Conctact Me</button>
+                        <button><a href="#contact">Conctact Me</a></button>
                     </div> 
                 </div>
             </div>
         </section>
 
 
-        <section class="portfolios-sections">
+        <section class="portfolios-sections" id="portfolios">
             <div class="portfolios">
                 <h2>Portfolio</h2>
                 <h3>See some works that I have done!</h3>
                 <div class="portfolio-bloc">
-                    <h3>FrontEnd Works</h3>
+                    <div class="port-title">
+                        <span>01</span>
+                        <h3>Front-end</h3>
+                        <a href="#">View All</a>
+                    </div>
                     <div class="blocs frontend">
                         <div class="portfolio">
                             <img src="assets/images/porf1.png" alt="fron work first img">
                             <div class="description">
                                 <h3>Jony Portfolio</h3>
                                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                                <button>Views <img src="icon.png" alt="icon view"></button>
+                                <button>Views <img src="assets/icones/arrow-up-right-from-square.png" alt="icon view"></button>
                             </div>
                         </div>
                         <div class="portfolio">
@@ -126,7 +131,7 @@
                             <div class="description">
                                 <h3>Jony Portfolio</h3>
                                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                                <button>Views <img src="porf1.png" alt="icon view"></button>
+                                <button>Views <img src="assets/icones/arrow-up-right-from-square.png" alt="icon view"></button>
                             </div>
                         </div>
                         <div class="portfolio">
@@ -134,18 +139,22 @@
                             <div class="description">
                                 <h3>Jony Portfolio</h3>
                                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                                <button>Views <img src="icon.png" alt="icon view"></button>
+                                <button>Views <img src="assets/icones/arrow-up-right-from-square.png" alt="icon view"></button>
                             </div>
                         </div>
                     </div>
-                    <h3>UI/UX Designs</h3>
+                    <div class="port-title">
+                        <span>02</span>
+                        <h3>UI/UX Design</h3>
+                        <a href="#">View All</a>
+                    </div>
                     <div class="blocs design-ui-ux">
                         <div class="portfolio">
                             <img src="assets/images/porf1.png" alt="fron work first img">
                             <div class="description">
                                 <h3>Jony Portfolio</h3>
                                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                                <button>Views <img src="icon.png" alt="icon view"></button>
+                                <button>Views <img src="assets/icones/arrow-up-right-from-square.png" alt="icon view"></button>
                             </div>
                         </div>
                         <div class="portfolio">
@@ -153,7 +162,7 @@
                             <div class="description">
                                 <h3>Jony Portfolio</h3>
                                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                                <button>Views <img src="icon.png" alt="icon view"></button>
+                                <button>Views <img src="assets/icones/arrow-up-right-from-square.png" alt="icon view"></button>
                             </div>
                         </div>
                         <div class="portfolio">
@@ -161,7 +170,7 @@
                             <div class="description">
                                 <h3>Jony Portfolio</h3>
                                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                                <button>Views <img src="icon.png" alt="icon view"></button>
+                                <button>Views <img src="assets/icones/arrow-up-right-from-square.png" alt="icon view"></button>
                             </div>
                         </div>
                     </div>
@@ -169,7 +178,7 @@
             </div>
         </section>
 
-        <section class="contact">
+        <section class="contact" id="contact">
             <div class="contact-contents">
                 <h2>Me Contactez</h2>
                 <h3>Je suis disponible 24/23h et 07/07</h3>
@@ -190,19 +199,19 @@
                             </span>
                             
                             <input type="text" placeholder="domain@email.com">
-                            <input type="text" placeholder="Object du Message">
     
-                            <textarea class="message"></textarea>
-    
-                            <input  class"submit" type="submit" placeholder="contact-btn-submit">
+                            <select class="select-services" name="services" id="">
+                                <option class="option" name="service" id="">Select a service</option>
+                                <option class="option" name="service" id="">Web developer</option>
+                                <option class="option" name="service" id="">UI/UX Design</option>
+                            </select>
+                            <textarea name="message" class="message" id="" placeholder="write you message here"></textarea>
+                            <button class ="submit" type="submit"> <img src="assets/icones/paper-plane.png" alt="send message">Send message
                         </form>
                     </div>
             </div>
             </div>
-
-
         </section>
-
         <div class="footer">
             <p>&copy;2024 Copyright</p>
             <p>Neo COOLMAN</p>
