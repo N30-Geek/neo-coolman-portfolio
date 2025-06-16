@@ -162,7 +162,7 @@ section{
 /* home-content */
 
 .container .home-contents{
-    min-height: 100vh;
+    margin-top: 7rem;
     width: 100%;
     gap: 2.4em;
 }
@@ -241,7 +241,8 @@ section{
 /* about-me style */
 .container .about-me{
     width: 100%;
-    min-height: 70vh;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .container .about-me img{
