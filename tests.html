@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographie : Tendances de l'Industrie & Étude de Marché</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://rsms.me/inter/inter.css');
+        html { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        body {
+            background: linear-gradient(to bottom right, #F7FFF7, #e0f2f2);
+            color: #1A535C;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+        .swot-card {
+             border-radius: 0.5rem;
+             padding: 1.5rem;
+             color: #1a202c;
+             height: 100%;
+        }
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4ECDC4;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .animated-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animated-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-[#F7FFF7] text-gray-800">
+
+    <!-- PALETTE INFO: Palette "Energetic & Playful" utilisée : #FF6B6B, #4ECDC4, #F7FFF7, #FFE66D, #45B7D1 -->
+    <!-- PLAN NARRATIF:
+        1. Accroche: Titre et statistique clé.
+        2. Aperçu du Marché: Taille et croissance (Graphique en Lignes).
+        3. Parts de Marché: Répartition des acteurs (Graphique en Donut).
+        4. Tendances Technologiques: Taux d'adoption (Graphique à Barres Horizontales).
+        5. Démographie des Consommateurs: Préférences par âge (Graphique à Barres Empilées).
+        6. Paysage Concurrentiel: Analyse SWOT (Grille HTML/CSS).
+        7. Recommandations Stratégiques (LLM): Suggestions basées sur le SWOT.
+        8. Chaîne de Valeur: Flux de processus (Diagramme Flexbox HTML/CSS).
+        9. Perspectives d'Avenir: Conclusion et points à retenir.
+    -->
+    <!-- CHOIX DES VISUALISATIONS:
+        - Taille du Marché: (Changement) -> Graphique en Lignes (Chart.js) pour montrer la tendance temporelle. PAS de SVG.
+        - Parts de Marché: (Comparaison) -> Graphique en Donut (Chart.js) pour montrer la composition d'un tout. PAS de SVG.
+        - Taux d'Adoption: (Comparaison) -> Graphique à Barres Horizontales (Chart.js) pour comparer des catégories distinctes. PAS de SVG.
+        - Démographie: (Comparaison/Composition) -> Graphique à Barres Empilées (Chart.js) pour montrer la composition au sein de chaque catégorie. PAS de SVG.
+        - SWOT: (Organisation) -> Grille HTML/CSS avec Tailwind pour regrouper les informations. PAS de SVG/Mermaid.
+        - Recommandations Stratégiques: Texte généré par LLM.
+        - Chaîne de Valeur: (Organisation/Processus) -> Diagramme Flexbox HTML/CSS pour montrer un flux séquentiel. PAS de SVG/Mermaid.
+    -->
+    <!-- CONFIRMATION: Aucun SVG ni Mermaid.js n'a été utilisé dans la génération de ce document. Toutes les visualisations sont rendues via Canvas (Chart.js) ou en HTML/CSS pur. -->
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#45B7D1] mb-4">Tendances de l'Industrie et Analyse du Marché</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Une analyse approfondie des dynamiques qui façonnent l'avenir de notre secteur.</p>
+            <div class="mt-8 bg-white p-6 rounded-lg shadow-xl inline-block">
+                <p class="text-2xl font-bold text-gray-700">Taux de Croissance Annuel Composé (TCAC)</p>
+                <p class="text-6xl font-extrabold text-[#FF6B6B] mt-2">12.5%</p>
+                <p class="text-sm text-gray-500">(Prévision 2024-2028)</p>
+            </div>
+        </header>
+
+        <main class="space-y-12">
+
+            <section id="market-overview" class="bg-white p-6 md:p-8 rounded-lg shadow-lg animated-section">
+                <h2 class="text-3xl font-bold text-center mb-2 text-[#45B7D1]">1. Aperçu du Marché</h2>
+                <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">Le marché connaît une expansion robuste, stimulée par l'innovation technologique et une demande croissante pour des solutions numériques. Cette section illustre la trajectoire de croissance projetée pour les cinq prochaines années, soulignant un potentiel de développement significatif.</p>
+                <div class="chart-container">
+                    <canvas id="marketSizeChart"></canvas>
+                </div>
+                <p class="text-sm text-center text-gray-500 mt-4">Le graphique ci-dessus montre la croissance projetée de la taille du marché en milliards de dollars. La tendance ascendante constante indique une confiance élevée des investisseurs et de nombreuses opportunités à venir.</p>
+            </section>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <section id="market-share" class="bg-white p-6 md:p-8 rounded-lg shadow-lg animated-section">
+                    <h2 class="text-3xl font-bold text-center mb-2 text-[#45B7D1]">2. Parts de Marché</h2>
+                    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">Le paysage concurrentiel est dominé par quelques acteurs clés, bien que des entreprises émergentes gagnent rapidement du terrain. La répartition actuelle des parts de marché révèle une concentration notable mais aussi une place pour l'innovation.</p>
+                    <div class="chart-container">
+                        <canvas id="marketShareChart"></canvas>
+                    </div>
+                    <p class="text-sm text-center text-gray-500 mt-4">La répartition en donut illustre la part de chaque acteur majeur sur le marché. "InnovateCorp" et "FutureTech Solutions" détiennent ensemble plus de 50% du marché, mais la catégorie "Autres" représente un segment important et fragmenté.</p>
+                </section>
+
+                <section id="tech-trends" class="bg-white p-6 md:p-8 rounded-lg shadow-lg animated-section">
+                    <h2 class="text-3xl font-bold text-center mb-2 text-[#45B7D1]">3. Tendances Technologiques</h2>
+                    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">L'adoption de technologies de pointe est le principal moteur de la transformation du secteur. Les entreprises qui intègrent ces innovations se positionnent pour un succès à long terme.</p>
+                    <div class="chart-container">
+                        <canvas id="techAdoptionChart"></canvas>
+                    </div>
+                    <p class="text-sm text-center text-gray-500 mt-4">Ce graphique compare le taux d'adoption des technologies clés. L'IA et le Machine Learning sont en tête, indiquant leur rôle central dans l'optimisation des processus et la création de valeur.</p>
+                </section>
+            </div>
+            
+            <section id="consumer-insights" class="bg-white p-6 md:p-8 rounded-lg shadow-lg animated-section">
+                <h2 class="text-3xl font-bold text-center mb-2 text-[#45B7D1]">4. Démographie des Consommateurs</h2>
+                 <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">Comprendre qui sont les consommateurs et ce qu'ils préfèrent est fondamental. Notre analyse révèle des différences de comportement distinctes entre les différents groupes d'âge, offrant des pistes pour un ciblage marketing plus efficace.</p>
+                <div class="chart-container">
+                    <canvas id="consumerDemographicsChart"></canvas>
+                </div>
+                <p class="text-sm text-center text-gray-500 mt-4">Les barres empilées montrent les préférences de produits par tranche d'âge. On observe que les jeunes consommateurs (18-34 ans) sont les plus grands adeptes des "Services Premium", tandis que les tranches plus âgées montrent un intérêt équilibré pour tous les produits.</p>
+            </section>
+
+            <section id="swot-analysis" class="bg-white p-6 md:p-8 rounded-lg shadow-lg animated-section">
+                <h2 class="text-3xl font-bold text-center mb-2 text-[#45B7D1]">5. Analyse Concurrentielle (SWOT)</h2>
+                <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">Une vision stratégique du marché nécessite une évaluation honnête des forces, faiblesses, opportunités et menaces. Cette analyse SWOT fournit un aperçu concis de l'environnement concurrentiel actuel.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                    <div id="swot-strengths" class="swot-card bg-[#4ECDC4] bg-opacity-20">
+                        <h3 class="font-bold text-xl mb-2">✅ Forces</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                            <li>Expertise technologique reconnue</li>
+                            <li>Forte image de marque</li>
+                            <li>Portefeuille de produits diversifié</li>
+                        </ul>
+                    </div>
+                    <div id="swot-weaknesses" class="swot-card bg-[#FF6B6B] bg-opacity-20">
+                        <h3 class="font-bold text-xl mb-2">❌ Faiblesses</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                            <li>Dépendance à quelques fournisseurs clés</li>
+                            <li>Coûts opérationnels élevés</li>
+                            <li>Lenteur dans l'adoption de nouveaux modèles</li>
+                        </ul>
+                    </div>
+                    <div id="swot-opportunities" class="swot-card bg-[#FFE66D] bg-opacity-30">
+                        <h3 class="font-bold text-xl mb-2">🚀 Opportunités</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                            <li>Expansion sur les marchés émergents</li>
+                            <li>Partenariats stratégiques</li>
+                            <li>Demande croissante pour la durabilité</li>
+                        </ul>
+                    </div>
+                    <div id="swot-threats" class="swot-card bg-[#45B7D1] bg-opacity-20">
+                        <h3 class="font-bold text-xl mb-2">⚡️ Menaces</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                            <li>Concurrence intense et agressive</li>
+                            <li>Réglementations gouvernementales strictes</li>
+                            <li>Cybersécurité et risques de données</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <button id="generateRecommendationsBtn" class="bg-[#45B7D1] hover:bg-[#1A535C] text-white font-bold py-3 px-6 rounded-full transition-colors duration-200 shadow-lg flex items-center justify-center mx-auto">
+                        Générer des Recommandations Stratégiques ✨
+                    </button>
+                </div>
+            </section>
+
+            <section id="strategic-recommendations" class="bg-white p-6 md:p-8 rounded-lg shadow-lg hidden animated-section">
+                <h2 class="text-3xl font-bold text-center mb-2 text-[#45B7D1]">6. Recommandations Stratégiques</h2>
+                <div id="recommendationsContent" class="text-gray-700 leading-relaxed mt-4">
+                    <div class="flex justify-center items-center h-48">
+                        <div class="loading-spinner"></div>
+                        <p class="ml-4 text-gray-500">Génération des recommandations...</p>
+                    </div>
+                </div>
+                <p class="text-sm text-center text-gray-500 mt-4">Ces recommandations sont générées par une intelligence artificielle basée sur l'analyse SWOT. Elles offrent des pistes de réflexion stratégique.</p>
+            </section>
+            
+            <section id="value-chain" class="bg-white p-6 md:p-8 rounded-lg shadow-lg animated-section">
+                <h2 class="text-3xl font-bold text-center mb-2 text-[#45B7D1]">7. La Chaîne de Valeur de l'Industrie</h2>
+                <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">Pour livrer un produit final de qualité, plusieurs étapes cruciales doivent être coordonnées. Ce diagramme simplifie le flux de processus typique de notre industrie, de la conception à l'assistance client.</p>
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 mt-8">
+                    <div class="text-center p-4 border-2 border-[#4ECDC4] rounded-lg w-full md:w-auto">
+                        <div class="text-2xl mb-1">💡</div>
+                        <h4 class="font-bold">R&D et Conception</h4>
+                    </div>
+                    <div class="text-3xl text-[#45B7D1] font-bold transform md:-rotate-0 rotate-90">→</div>
+                     <div class="text-center p-4 border-2 border-[#FFE66D] rounded-lg w-full md:w-auto">
+                        <div class="text-2xl mb-1">⚙️</div>
+                        <h4 class="font-bold">Production</h4>
+                    </div>
+                    <div class="text-3xl text-[#45B7D1] font-bold transform md:-rotate-0 rotate-90">→</div>
+                    <div class="text-center p-4 border-2 border-[#FF6B6B] rounded-lg w-full md:w-auto">
+                        <div class="text-2xl mb-1">📢</div>
+                        <h4 class="font-bold">Marketing & Ventes</h4>
+                    </div>
+                     <div class="text-3xl text-[#45B7D1] font-bold transform md:-rotate-0 rotate-90">→</div>
+                    <div class="text-center p-4 border-2 border-[#45B7D1] rounded-lg w-full md:w-auto">
+                        <div class="text-2xl mb-1">🤝</div>
+                        <h4 class="font-bold">Support Client</h4>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-16 py-8 border-t border-gray-200">
+            <p class="text-gray-600">&copy; 2025 Infographie Analytique. Tous droits réservés.</p>
+            <p class="text-sm text-gray-400 mt-2">Généré pour une analyse de marché approfondie.</p>
+        </footer>
+
+        <button id="backToTopBtn" class="fixed bottom-8 right-8 bg-[#FF6B6B] text-white p-4 rounded-full shadow-lg hover:bg-[#eb5a5a] transition-all duration-300 transform scale-0 opacity-0">
+            ↑
+        </button>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const energeticPalette = {
+                red: '#FF6B6B',
+                cyan: '#4ECDC4',
+                yellow: '#FFE66D',
+                blue: '#45B7D1',
+                light: '#F7FFF7',
+                dark: '#1A535C'
+            };
+
+            function wrapLabel(label, maxLength) {
+                if (label.length <= maxLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + word).length > maxLength) {
+                        lines.push(currentLine.trim());
+                        currentLine = '';
+                    }
+                    currentLine += word + ' ';
+                }
+                lines.push(currentLine.trim());
+                return lines;
+            }
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                }
+                return label;
+            };
+            
+            const defaultChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: energeticPalette.dark,
+                            font: {
+                                family: 'Inter',
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleFont: {
+                            family: 'Inter',
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            family: 'Inter',
+                            size: 12
+                        },
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: energeticPalette.dark, font: { family: 'Inter' } },
+                        grid: { display: false }
+                    },
+                    y: {
+                        ticks: { color: energeticPalette.dark, font: { family: 'Inter' } },
+                        grid: { color: '#e0e0e0', borderDash: [5, 5] }
+                    }
+                }
+            };
+            
+            new Chart(document.getElementById('marketSizeChart'), {
+                type: 'line',
+                data: {
+                    labels: ['2024', '2025', '2026', '2027', '2028'],
+                    datasets: [{
+                        label: 'Taille du marché (en Mds $)',
+                        data: [120, 145, 170, 205, 250],
+                        borderColor: energeticPalette.red,
+                        backgroundColor: 'rgba(255, 107, 107, 0.2)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 3
+                    }]
+                },
+                options: { ...defaultChartOptions, scales: { ...defaultChartOptions.scales, y: { ...defaultChartOptions.scales.y, beginAtZero: false }}}
+            });
+
+            new Chart(document.getElementById('marketShareChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['InnovateCorp', 'FutureTech Solutions', wrapLabel('Global Dynamics Inc.', 16), 'Autres'],
+                    datasets: [{
+                        label: 'Parts de Marché',
+                        data: [35, 25, 15, 25],
+                        backgroundColor: [energeticPalette.red, energeticPalette.cyan, energeticPalette.yellow, energeticPalette.blue],
+                        borderColor: energeticPalette.light,
+                        borderWidth: 4,
+                        hoverOffset: 4
+                    }]
+                },
+                options: { ...defaultChartOptions, scales: { x: { display: false }, y: { display: false } } }
+            });
+
+            new Chart(document.getElementById('techAdoptionChart'), {
+                type: 'bar',
+                data: {
+                    labels: [wrapLabel('Intelligence Artificielle & Machine Learning', 16), 'Internet des Objets (IoT)', 'Blockchain', 'Cloud Computing', wrapLabel('Automatisation des Processus Robotiques (RPA)', 16)],
+                    datasets: [{
+                        label: "Taux d'adoption (%)",
+                        data: [78, 62, 45, 85, 55],
+                        backgroundColor: [energeticPalette.cyan, energeticPalette.yellow, energeticPalette.red, energeticPalette.blue, '#F9A826'],
+                        borderColor: '#ffffff',
+                        borderWidth: 2,
+                        borderRadius: 5
+                    }]
+                },
+                options: { ...defaultChartOptions, indexAxis: 'y', plugins: { legend: { display: false } } }
+            });
+
+            new Chart(document.getElementById('consumerDemographicsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Produit A', 'Produit B', 'Service Premium'],
+                    datasets: [
+                        {
+                            label: '18-34 ans',
+                            data: [30, 40, 65],
+                            backgroundColor: energeticPalette.red,
+                        },
+                        {
+                            label: '35-54 ans',
+                            data: [50, 45, 25],
+                            backgroundColor: energeticPalette.cyan,
+                        },
+                        {
+                            label: '55+ ans',
+                            data: [20, 15, 10],
+                            backgroundColor: energeticPalette.yellow,
+                        },
+                    ]
+                },
+                options: { ...defaultChartOptions, scales: { x: { stacked: true }, y: { stacked: true } } }
+            });
+
+            const generateRecommendationsBtn = document.getElementById('generateRecommendationsBtn');
+            const recommendationsSection = document.getElementById('strategic-recommendations');
+            const recommendationsContent = document.getElementById('recommendationsContent');
+            const backToTopBtn = document.getElementById('backToTopBtn');
+
+            generateRecommendationsBtn.addEventListener('click', async () => {
+                recommendationsSection.classList.remove('hidden');
+                recommendationsContent.innerHTML = `
+                    <div class="flex justify-center items-center h-48">
+                        <div class="loading-spinner"></div>
+                        <p class="ml-4 text-gray-500">Génération des recommandations...</p>
+                    </div>
+                `;
+                
+                const strengths = Array.from(document.querySelectorAll('#swot-strengths li')).map(li => li.textContent).join(', ');
+                const weaknesses = Array.from(document.querySelectorAll('#swot-weaknesses li')).map(li => li.textContent).join(', ');
+                const opportunities = Array.from(document.querySelectorAll('#swot-opportunities li')).map(li => li.textContent).join(', ');
+                const threats = Array.from(document.querySelectorAll('#swot-threats li')).map(li => li.textContent).join(', ');
+
+                const prompt = `En tant qu'analyste stratégique, propose des recommandations claires et concises basées sur l'analyse SWOT suivante pour une entreprise du secteur des technologies :
+                Forces: ${strengths}
+                Faiblesses: ${weaknesses}
+                Opportunités: ${opportunities}
+                Menaces: ${threats}
+                Formate la réponse sous forme de liste à puces, avec des titres de section clairs pour chaque type de recommandation (par exemple, "Recommandations Stratégiques", "Actions d'Amélioration").`;
+
+                let chatHistory = [];
+                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                const payload = { contents: chatHistory };
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        recommendationsContent.innerHTML = `<div class="p-4 bg-gray-50 rounded-md border border-gray-200">${text.replace(/\n/g, '<br>')}</div>`;
+                    } else {
+                        recommendationsContent.innerHTML = `<p class="text-red-500">Erreur: Impossible de générer les recommandations. La structure de la réponse de l'IA est inattendue.</p>`;
+                    }
+                } catch (error) {
+                    recommendationsContent.innerHTML = `<p class="text-red-500">Erreur lors de la connexion à l'IA: ${error.message}</p>`;
+                    console.error('Erreur API Gemini:', error);
+                }
+            });
+
+            // Intersection Observer for section animations
+            const sections = document.querySelectorAll('.animated-section');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Back to top button logic
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.remove('scale-0', 'opacity-0');
+                    backToTopBtn.classList.add('scale-100', 'opacity-100');
+                } else {
+                    backToTopBtn.classList.remove('scale-100', 'opacity-100');
+                    backToTopBtn.classList.add('scale-0', 'opacity-0');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

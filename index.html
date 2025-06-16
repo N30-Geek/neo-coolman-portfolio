@@ -1,222 +1,113 @@
+<!-- main pages. 
+ coded py N30-Geek
+ version 0.1
+ -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
-    <title>Coolman Neo Portfolio</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <title>Portfolio Néo Coolman</title>
 </head>
+
 <body>
     <div class="container">
-        
-        <section class="home-pg">
-      
-             <div class="logo">
-                 <a href="#home">COOLMAN <span>N.</span></a>
+        <!-- header contents -->
+        <setion class="header flx-cntr">
+            <div class="logo">
+                <span>Neo.C</span>
             </div>
-           
-            <nav>
-                <ul>
-                    <li><a href="#home" class="home-btn">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolios">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
+            <nav class="menu flx-cntr">
+                <ul class="items-container flx-cntr">
+                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a href="#aboutMe">About me</a></li>
+                    <li><a href="index.html">Skills</a></li>
+                    <li><a href="">Portfolios</a></li>
+                    <li><a href="index.html">Services</a></li>
                 </ul>
             </nav>
-        </section>
+            <button class="hide-me">Contact me <span class="material-icons">
+phone_enabled
+</span></button>
+        </setion>
 
-        <section class="home-content" id="home">
-            <div class="contents">
-                <h3>Hello!</h3>
-                <h1> <span>I am</span> COOLMAN Néo</h1>
-                <h2>A web Developer and coding is my life</h2>                
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia sed doloribus nisi repellendus delectus dolorum enim eligendi cupiditate, voluptatum natus optio facere, quis, voluptas accusamus architecto dolores odit dolorem repellat.</p>
-
-                <div class="socials">
-                    <div class="links">
-                        <img class="i" src="assets/icones/fb-i.svg" alt="icone facebook">
-                        <img class="i" src="assets/icones/ln-i.svg" alt="icone facebook">
-                        <img class="i" src="assets/icones/wtsp-i.svg" alt="icone instgram">
-                        <img class="i" src="assets/icones/git-i.svg" alt="icone github">
-                        <img class="i" src="assets/icones/yt-i.svg" alt="icone youtube">
-                    </div>
-                </div> 
-                <button>Hire me!</button>
-            </div>
-
-            <div class="home-img">
-                <img src="assets/images/home-image.svg" alt="image de la page d'accueil">
-            </div>
-        </section>
-
-
-        <!--code for second bloc -->
-
-        <section class="about-section" id="about">
-            
-            <div class="abt-contents">
-                <img src="assets/images/image-profile.svg" alt="profile autor image">
-
-                <div class="contents">
-                    <h2>About me</h2>
-
-                    <h3>I'am a Fullstck Developer</h3>
-
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur dicta distinctio odit nam, omnis pariatur iusto vero exercitationem optio sed commodi, quae in praesentium laboriosam? Ea veniam pariatur magnam deserunt.</p>
-
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur dicta distinctio odit nam, omnis pariatur iusto vero exercitationem optio sed commodi, quae in praesentium laboriosam? Ea veniam pariatur magnam deserunt.</p>
-
-                    <button>Donwload my Cv</button>
-                </div>                   
-            </div>
-        </section>
-
-        <!-- code for services -->
-
-        <section class="all-services" id="services">
-            
-            <div class="services">
-                <h2>My services</h2>
-                <h3>See all that I can do for you</h3>
-                <div class="services-items">
-                    <div class="service">
-                        <img src="assets/icones/coding.png" alt="fullstak dev icone">
-                        <h2>Front-End Developer</h2>
-    
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos suscipit laboriosam ipsam cumque, reiciendis mollitia ipsum voluptatem rem placeat consequatur?.</p>
-                        <button><a href="#contact">Conctact Me</a></button>
-                    </div>
-                    
-                    <div class="service">
-                        <img src="assets/icones/ux-design.png" alt="fullstak dev icone">
-                        <h2>Front-End Developer</h2>
-    
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos suscipit laboriosam ipsam cumque, reiciendis mollitia ipsum voluptatem rem placeat consequatur?.</p>
-                        <button><a href="#contact">Conctact Me</a></button>
-                    </div> 
-                    <div class="service">
-                        <img src="assets/icones/digital-campaign.png" alt="fullstak dev icone">
-                        <h2>Front-End Developer</h2>
-    
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos suscipit laboriosam ipsam cumque, reiciendis mollitia ipsum voluptatem rem placeat consequatur?.</p>
-                        <button><a href="#contact">Conctact Me</a></button>
-                    </div> 
+        <section class="home-contents flx-cntr">
+            <!-- home contents -->
+            <div class="home-l-contents">
+                <h3 class="title-2">Hello my name is</h3>
+                <h1 class="title-1">Néo coolman</h1>
+                <h3 class="title-2"">And I am a</h3>
+                <div class="whoamis-list flx-left">
+                    <div class="item item-1">FrontEnd Dev.</div>
+                    <div class="item item-2">BackEnd Dev</div>
+                    <div class="item item-3">UI/UX Designer</div>
+                    <div class="item item-4">Mobile App Dev</div>
+                    <div class="item item-5">DevOps</div>
                 </div>
+                <p>You can know more about me in social network or by contacting me or by donwloading my cv just bellow</p>
+                <a href="#contactMe">Contact me</a>
+            </div>
+            <div class="r-contents">
+                <img src="assets/images/home-image.png" alt="home image">
             </div>
         </section>
 
-
-        <section class="portfolios-sections" id="portfolios">
-            <div class="portfolios">
-                <h2>Portfolio</h2>
-                <h3>See some works that I have done!</h3>
-                <div class="portfolio-bloc">
-                    <div class="port-title">
-                        <span>01</span>
-                        <h3>Front-end</h3>
-                        <a href="#">View All</a>
-                    </div>
-                    <div class="blocs frontend">
-                        <div class="portfolio">
-                            <img src="assets/images/porf1.png" alt="fron work first img">
-                            <div class="description">
-                                <h3>Jony Portfolio</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                                <button>Views <img src="assets/icones/arrow-up-right-from-square.png" alt="icon view"></button>
-                            </div>
-                        </div>
-                        <div class="portfolio">
-                            <img src="assets/images/porf1.png" alt="fron work first img">
-                            <div class="description">
-                                <h3>Jony Portfolio</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                                <button>Views <img src="assets/icones/arrow-up-right-from-square.png" alt="icon view"></button>
-                            </div>
-                        </div>
-                        <div class="portfolio">
-                            <img src="assets/images/porf1.png" alt="fron work first img">
-                            <div class="description">
-                                <h3>Jony Portfolio</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                                <button>Views <img src="assets/icones/arrow-up-right-from-square.png" alt="icon view"></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="port-title">
-                        <span>02</span>
-                        <h3>UI/UX Design</h3>
-                        <a href="#">View All</a>
-                    </div>
-                    <div class="blocs design-ui-ux">
-                        <div class="portfolio">
-                            <img src="assets/images/porf1.png" alt="fron work first img">
-                            <div class="description">
-                                <h3>Jony Portfolio</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                                <button>Views <img src="assets/icones/arrow-up-right-from-square.png" alt="icon view"></button>
-                            </div>
-                        </div>
-                        <div class="portfolio">
-                            <img src="assets/images/porf1.png" alt="fron work first img">
-                            <div class="description">
-                                <h3>Jony Portfolio</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                                <button>Views <img src="assets/icones/arrow-up-right-from-square.png" alt="icon view"></button>
-                            </div>
-                        </div>
-                        <div class="portfolio">
-                            <img src="assets/images/porf1.png" alt="fron work first img">
-                            <div class="description">
-                                <h3>Jony Portfolio</h3>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                                <button>Views <img src="assets/icones/arrow-up-right-from-square.png" alt="icon view"></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact" id="contact">
-            <div class="contact-contents">
-                <h2>Me Contactez</h2>
-                <h3>Je suis disponible 24/23h et 07/07</h3>
-                <div class="contents">
-                    <div class="personal-info">
-                        <h3>Information personel</h3>
-                        <div class="info">
-                            <span><img src="assets/icones/phone-call.png" alt="phone number"> (+243) 9999999</span>
-                            <span><img src="assets/icones/envelope.png" alt="phone number"> geekneo@gmail.com</span>
-                            <span><img src="assets/icones/marker.png" alt="phone number"> Kinshasa, Gombre N978</span>
-                        </div>
-                    </div>
-                    <div class="form">
-                        <form>
-                            <span>
-                                <input type="text" placeholder="Nom">
-                                <input type="text" placeholder="Prenom">
-                            </span>
-                            
-                            <input type="text" placeholder="domain@email.com">
-    
-                            <select class="select-services" name="services" id="">
-                                <option class="option" name="service" id="">Select a service</option>
-                                <option class="option" name="service" id="">Web developer</option>
-                                <option class="option" name="service" id="">UI/UX Design</option>
-                            </select>
-                            <textarea name="message" class="message" id="" placeholder="write you message here"></textarea>
-                            <button class ="submit" type="submit"> <img src="assets/icones/paper-plane.png" alt="send message">Send message
-                        </form>
-                    </div>
-            </div>
-            </div>
-        </section>
-        <div class="footer">
-            <p>&copy;2024 Copyright</p>
-            <p>Neo COOLMAN</p>
+    <section class="about-me flx-cntr" id="aboutMe">
+        <div class="l-contents flx-cntr">
+            <img src="assets/images/image-profile.png" alt="profile-image">
         </div>
-
+        <div class="r-contents">
+            <h2 class="title-2">About me</h2>
+            <p class="my-descr">Je suis un supeur passionné par la création de solution numérique innovontes. Bien que je sois en début de ma carrière, j'ai déjà acquis des connaissance solude en HTML/CSS, Javascript, React, Vue, Python, Django, React native, Flutter, Electron.js pour le développement mobile, UI/UX Design et je mettrise également les utils suivant Adobe (Photoshop, XD, Illustrator), Figma, Git/Github, grâce à des projets personnel et des formation intensives. j'aime reléver les défis techniques et apprendre de nouvelles technigies pour améliorer mes compétence. Mon objectif est de contribuer à des projets stimulents tout en continuant à grandir entant développeur.</p>
+            <div class="about-me-details flx-cntr">
+                <div class="online-comminuties flx-left">
+                    <h3>MY ONLINE COMMINUTIES</h3>
+                    <div class="item flx-cntr">
+                        <h4>From <br>Youtube</h4>
+                        <img src="assets/icones/yt-i.svg" alt="Youtube Icon" srcset="">
+                        <div class="subscribers flx-cntr">
+                            <span class="title">Subscribers</span>
+                            <span class="amounts">123K</span>
+                        </div>
+                    </div>
+                    <div class="item flx-cntr">
+                        <h4>From <br>Facebook Gp.</h4>
+                        <img src="assets/icones/fb-i.svg" alt="Youtube Icon" srcset="">
+                        <div class="subscribers flx-cntr">
+                            <span class="title">Subscribers</span>
+                            <span class="amounts">17K</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="works-counters flx-cntr">
+                    <div class="item flx-cntr">
+                        <h3>Personal <br>projects</h3>
+                        <span class="nbr flx-cntr">+78</span>
+                    </div>
+                    <div class="item flx-cntr">
+                        <h3>Clients <br>projects</h3>
+                        <span class="nbr flx-cntr">+5</span>
+                    </div>
+                    <div class="item flx-cntr">
+                        <h3>Git <br>Repos</h3>
+                        <span class="nbr flx-cntr">+103</span>
+                    </div>
+                </div>
+            </div>
+            <div class="link-cv">
+                <p>You can also download my CV from</p>
+                <a href="assets/files/n30_cv.pdf" download="neo_cv_file.pdf">Here : my_cv.pdf</a>
+            </div>
+        </div>
+    </section>
     </div>
 </body>
+
 </html>

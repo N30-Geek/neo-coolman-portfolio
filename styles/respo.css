@@ -1,0 +1,84 @@
+/* Styles pour les tablettes */
+@media screen and (max-width: 1024px) {
+    section,
+    .container .header {
+        padding-inline: 50px;
+    }
+
+    .home-contents {
+        align-items: flex-start;
+        padding-top: 8em;
+    }
+
+    .home-contents .home-l-contents {
+        width: 100%;
+    }
+
+    .home-contents .r-contents {
+        display: none;
+        /* Cacher l'image sur les tablettes pour plus de clarté */
+    }
+
+    .about-me {
+        flex-direction: column;
+        gap: 2em;
+        text-align: center;
+        padding-top: 0;
+    }
+}
+
+/* Styles pour les mobiles */
+@media screen and (max-width: 768px) {
+
+    section,
+    .container .header {
+        padding-inline: 20px;
+    }
+
+    .container .header {
+        height: 4em;
+    }
+
+    .header .menu,
+    .header .hide-me {
+        display: none;
+        /* Cacher le menu et le bouton sur mobile */
+    }
+
+    .home-contents {
+        text-align: center;
+        padding-top: 6em;
+        min-height: auto;
+    }
+
+    .home-l-contents .whoamis-list {
+        justify-content: center;
+    }
+
+    .title-1 {
+        font-size: 2.5em;
+    }
+
+    .title-2 {
+        font-size: 1.2em;
+    }
+
+    .about-me {
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+
+    .about-me .l-contents img {
+        width: 150px;
+    }
+
+    .about-me-details {
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    .online-comminuties {
+        flex-direction: column;
+        gap: 1em;
+    }
+}
